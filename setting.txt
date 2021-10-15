@@ -1,0 +1,4 @@
+[DEFAULT]
+INPUT_DIR = data
+INPUT_FILE = ["0001.xlsx", "0002.xlsx"]
+OUTPUT_FILE = result.txt
