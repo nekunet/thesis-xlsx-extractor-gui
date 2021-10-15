@@ -48,6 +48,9 @@ def load_data():
         tmp_df = pd.read_excel(filename)
         df = df.append(tmp_df)
 
+    # 改行をなくす
+    df = df.replace("\n", "", regex=True)
+
     return df
 
 
