@@ -54,10 +54,40 @@ def load_data():
     return df
 
 
+def etl_data(df):
+    """
+    データをconfigで設定された内容をもとに抽出・加工・出力する関数
+
+    Args:
+        df: 対象のpandas DataFrame    
+    """
+    etl_data = []
+    
+    target = json.loads(config["DEFAULT"]["TARGET"])
+    filter_no = json.loads(config["DEFAULT"]["FILTER_NO"])
+    output_file = config["DEFAULT"]["OUTPUT_FILE"]
+    
+    for index, row in df.iterrows():
+        concated_str = ""
+        if row["分類番号"] in filter_no:
+            for t in target:
+                # configファイルで指定されたTARGETのデータを文字列として連結
+                concated_str = concated_str + str(row[t])
+                
+            etl_data.append(concated_str)
+
+    # テキストとして出力
+    with open(output_file, "w") as f:
+        for d in etl_data:
+            f.write(d + "\n")
+
+    print("[INFO] {0} に結果を出力しました。".format(output_file))
+
+
 def main():
      df = load_data()
+     etl_data(df)
      
-
 
 if __name__ == "__main__":
     config = configparser.ConfigParser()

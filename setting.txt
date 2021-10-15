@@ -2,3 +2,5 @@
 INPUT_DIR = data
 INPUT_FILE = ["0001.xlsx", "0002.xlsx"]
 OUTPUT_FILE = result.txt
+TARGET = ["論文名", "掲載場所", "概要"]
+FILTER_NO = [1, 2]
