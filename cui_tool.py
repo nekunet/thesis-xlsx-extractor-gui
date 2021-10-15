@@ -15,7 +15,7 @@ def get_filenames():
     configから入力ファイル群を読み込む関数
 
     Returns:
-        filename: 入力に使用するのファイル群
+        filename: 入力に使用するファイル群
     
     """
     # ディレクトリのパスをconfigから抽出 
@@ -73,7 +73,7 @@ def etl_data(df):
             for t in target:
                 # configファイルで指定されたTARGETのデータを文字列として連結
                 concated_str = concated_str + str(row[t])
-                
+
             etl_data.append(concated_str)
 
     # テキストとして出力
