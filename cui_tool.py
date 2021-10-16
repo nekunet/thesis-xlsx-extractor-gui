@@ -77,7 +77,7 @@ def etl_data(df):
             etl_data.append(concated_str)
 
     # テキストとして出力
-    with open(output_file, "w") as f:
+    with open(output_file, "w", encoding="UTF-8") as f:
         for d in etl_data:
             f.write(d + "\n")
 
