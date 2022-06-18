@@ -118,8 +118,6 @@ if __name__ == "__main__":
 
     # ウィンドウレイアウト
     layout = [
-              # InputText に対してイベント受信を可能（enable_events=True）とすることで、
-              #入力毎にイベントを発火
               [sg.Text('フォルダ選択', font=("Meiryo UI", 10)), 
                 sg.InputText(enable_events=True, key="-INPUT_FOLDER-"), 
                 sg.FolderBrowse('Browse', key='-FOLDER-', initial_folder="./")],
